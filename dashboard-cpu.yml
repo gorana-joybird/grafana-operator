@@ -1,0 +1,30 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
+  name: cpu-dashboard
+  namespace: grafana-operator
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: my-grafana
+  folder: "MyFolder"
+  json: |
+    {
+      "title": "CPU Usage Dashboard",
+      "uid": "cpu-usage",
+      "panels": [
+        {
+          "type": "timeseries",
+          "title": "CPU Usage",
+          "targets": [
+            {
+              "expr": "rate(node_cpu_seconds_total{mode='user'}[5m])",
+              "legendFormat": "{{instance}}"
+            }
+          ],
+          "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 }
+        }
+      ],
+      "schemaVersion": 36
+    }
+

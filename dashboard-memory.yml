@@ -1,0 +1,30 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
+  name: memory-dashboard
+  namespace: grafana-operator
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: my-grafana
+  folder: "MyFolder"
+  json: |
+    {
+      "title": "Memory Usage Dashboard",
+      "uid": "memory-usage",
+      "panels": [
+        {
+          "type": "timeseries",
+          "title": "Memory Usage",
+          "targets": [
+            {
+              "expr": "node_memory_MemUsed_percent",
+              "legendFormat": "{{instance}}"
+            }
+          ],
+          "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 }
+        }
+      ],
+      "schemaVersion": 36
+    }
+

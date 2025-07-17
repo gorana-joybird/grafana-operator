@@ -1,0 +1,16 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: Grafana
+metadata:
+  name: my-grafana
+  namespace: grafana-operator
+  labels:
+    dashboards: my-grafana
+spec:
+  config:
+    log:
+      level: info
+    security:
+      admin_user: admin
+      admin_password: admin123
+    auth.anonymous:
+      enabled: "true"
