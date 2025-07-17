@@ -2,7 +2,6 @@ apiVersion: grafana.integreatly.org/v1beta1
 kind: Grafana
 metadata:
   name: my-grafana
-  namespace: grafana-operator
   labels:
     dashboards: my-grafana
 spec:

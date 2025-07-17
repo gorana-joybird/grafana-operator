@@ -2,7 +2,6 @@ apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
   name: memory-dashboard
-  namespace: grafana-operator
 spec:
   instanceSelector:
     matchLabels:
@@ -27,4 +26,3 @@ spec:
       ],
       "schemaVersion": 36
     }
-
